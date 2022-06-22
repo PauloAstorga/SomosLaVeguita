@@ -3,12 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->database();
-	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -22,21 +16,18 @@ class Welcome extends CI_Controller {
 	 *
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->database();
+
+		$query = $this->db->query('SELECT * FROM Producto ORDER BY RAND() LIMIT 8');
+
+		$resultado['productos'] = $query->result();
+
+		$this->load->view('welcome_message', $resultado, false);		
 	}
 
-	public function test()
-	{
-		$this->load->model('Comuna');
 
-		$comunas = $this->Comuna->find(1);
-
-		var_dump($comunas);
-
-		$this->load->view('test');
-	}
 }
