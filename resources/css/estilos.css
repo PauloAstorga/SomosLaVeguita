@@ -1,0 +1,22 @@
+.solucion_carrusel{
+    width:50%;
+    height:fit-content;
+    align-self:center;
+    margin-top:20px;
+    margin-bottom:20px;
+    border-radius:20px;
+    box-shadow: 2px 2px 5px;
+}
+.solucion_contenido{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+    height:fit-content;
+
+}
+.solucion_imagen{
+    border-radius:20px;
+    box-shadow: 2px 2px 5px;
+}
+    
